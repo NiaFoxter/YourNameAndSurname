@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatuble" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your name and surname</title>
+    <style>
+        .submit {
+            display: block;
+        }
+
+        input, label {
+            font-family: cursive;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="yourForm">
+        <label for="name"><b>Name</b> <i>(2 to 10 characters)</i> : </label>
+        <input type="text" id="name" placeholder="Enter your name" minlength="2" maxlength="10" size="11" required> <br>
+        <label for="surname"><b>Surname</b> <i>(2 to 14 characters)</i> : </label>
+        <input type="text" id="surname" placeholder="Enter your surname" minlength="2" maxlength="14" size="16"
+            required>
+        <input type="submit" class="submit" value="Click to say hello in console">
+    </form>
+
+    <script>
+        const y_form = document.getElementById("yourForm"),
+            y_name = document.getElementById("name"),
+            y_surname = document.getElementById("surname");
+
+        y_form.addEventListener("submit", (e) => { console.log(sayHelloToYN(y_name.value, y_surname.value)) })
+
+        function sayHelloToYN(your_name, your_surname) {
+            return `Hello ${your_name} ${your_surname}! Nice to meet you ;)`;
+        }
+
+        y_form.addEventListener('submit', (ev) => {
+            ev.preventDefault();
+        })
+
+    </script>
+</body>
+
+</html>
